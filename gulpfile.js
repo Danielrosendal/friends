@@ -1,9 +1,13 @@
 var gulp = require('gulp');
+var path = require('path');
 var LiveServer = require('gulp-live-server');
 var browserSync = require('browser-sync');
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 var reactify = require('reactify');
+var less = require('gulp-less');
+var minifyCss = require('gulp-minify-css');
+var rename = require('gulp-rename');
 
 gulp.task('live-server',function(){
     var server = new LiveServer('server/main.js');
@@ -21,8 +25,21 @@ gulp.task('bundle',['copy'],function(){
     .pipe(gulp.dest('./.tmp'));
 })
 
-gulp.task('copy',function(){
-    gulp.src(['app/*.css', 'bower_components/skeleton/css/*.css'])
+gulp.task('process-styles', function() {
+	return gulp.src('./app/public/less/*.less')
+	.pipe(less({
+      paths: [ path.join(__dirname, 'less', 'includes') ]
+    }).on('error', function(err) {
+		this.emit('end');
+	}))
+    .pipe(gulp.dest('./app/public/css'))
+	.pipe(rename({suffix: '.min'}))
+	.pipe(minifyCss())
+	.pipe(gulp.dest('./app/public/css'));
+})
+
+gulp.task('copy', ['process-styles'],function(){
+    gulp.src(['app/public/css/*.css', 'bower_components/skeleton/css/*.css'])
     .pipe(gulp.dest('./.tmp'));
 })
 

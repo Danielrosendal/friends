@@ -7,14 +7,21 @@ mongoose.connect('mongodb://localhost/friends',function() {
     mongoose.connection.db.dropDatabase();
     
     var items = [{
-        name:"Ice Cream"
+        name:"Emil",
+        lastMeeting:new Date(),
+        description:"nice"
     },{
-        name:"Waffles"
+        name:"Kalle",
+        lastMeeting:new Date(),
+        description:"nice2"
     },{
-        name:"Candy",
-        purchased:true
+        name:"olle",
+        lastMeeting:new Date(),
+        description:"nice3"
     },{
-        name:"Snarks"
+        name:"Pelle",
+        lastMeeting:new Date(),
+        description:"nice4"
     }];
     
     items.forEach(function(item){

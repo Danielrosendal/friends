@@ -3,6 +3,8 @@ var mongoose = require('mongoose');
 var FriendSchema = {
     name:String,
     purchased:Boolean,
+    description:String,
+    lastMeeting:Date,
     id:String
 };
 
