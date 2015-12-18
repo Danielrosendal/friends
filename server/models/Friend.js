@@ -1,11 +1,12 @@
 var mongoose = require('mongoose');
 
 var FriendSchema = {
-    name:String,
-    purchased:Boolean,
-    description:String,
-    lastMeeting:Date,
-    id:String
+    name: String,
+    purchased: Boolean,
+    description: String,
+    lastMeeting: Date,
+    id: String,
+    portrait: String
 };
 
 var Friend = mongoose.model('Friend' ,FriendSchema ,"Friends");

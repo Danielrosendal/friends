@@ -1,0 +1,26 @@
+.plauqeContainer {
+  width: 100px;
+  margin: 2px;
+  background: lightgray;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.plauqeTitle {
+  width: 100%;
+}
+.editButton {
+  background-color: red;
+}
+.doneButton {
+  background-color: green;
+}
+.deleteButton {
+  background-color: yellow;
+  flex-basis: 45%;
+}

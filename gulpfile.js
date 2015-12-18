@@ -1,6 +1,5 @@
 var gulp = require('gulp');
 var path = require('path');
-var LiveServer = require('gulp-live-server');
 var browserSync = require('browser-sync');
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
@@ -8,10 +7,12 @@ var reactify = require('reactify');
 var less = require('gulp-less');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
+var LiveServer = require('gulp-live-server');
+var server =  LiveServer.static();
 
-gulp.task('live-server',function(){
+gulp.task('live-server',function() {
     var server = new LiveServer('server/main.js');
-    server.start();    
+    server.start();
 })
 
 gulp.task('bundle',['copy'],function(){
@@ -43,9 +44,18 @@ gulp.task('copy', ['process-styles'],function(){
     .pipe(gulp.dest('./.tmp'));
 })
 
-gulp.task('serve',['bundle','live-server'],function(){
+gulp.task('serve',['bundle','live-server'],function() {
     browserSync.init(null,{
         proxy:"http://localhost:7777",
         port: 9001
     })
+})
+
+// How to get watch on less & jsx?
+gulp.task('serveCssW', function() {
+    gulp.watch('./app/public/less/*.less', ['copy']);
+})
+
+gulp.task('serveJsxW', ['serve'], function() {
+    gulp.watch(['./app/components/*.jsx'], ['bundle']);
 })

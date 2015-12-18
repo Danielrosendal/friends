@@ -1,18 +1,24 @@
 var React = require('react/addons');
-var Friend = require('./Friend.jsx');
+var FriendPlaque = require('./FriendPlaque.jsx');
 var FriendListAddFriend = require('./FriendListAddFriend.jsx');
 
 module.exports = React.createClass({
-    render:function(){
+    toggleEditMode:function(item) {
+        this.setState({gray: 10}); 
+        alert("FriendList!!");
+    },
+    render:function() {
         return (
             <div>
-                <h1>Friend </h1>
-                <div>
-                    {this.props.items.map(function(item,index){
+                <h1>Friends </h1>
+                <div className="friendContainer">
+                    {this.props.items.map(function(item, index){
                         return (
-                            <Friend item={item} key={"item"+index}/>
-                        )
-                    })                       
+                            <div>
+                                {<FriendPlaque item={item} index={index} key={"item"+index}/>}
+                            </div>
+                        );
+                        }, this)
                     }
                 </div>
                 <FriendListAddFriend />

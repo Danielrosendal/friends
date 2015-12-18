@@ -16,25 +16,34 @@ module.exports = React.createClass({
         action.delete(this.props.item);
         
     },
-    render:function(){
+    toggleEditMode:function(e) {
+        e.preventDefault();
+        // alert("Friend!!");
+    },
+    handleTitleChange:function(e) {
+        this.setState({name: e.target.value});
+    },
+    render:function() {
         return (
-           <div className="friend row">
-				<div className="two columns">
-					<h4 className={this.props.item.purchased ? "strikethrough" : "" }>
-						{this.props.item.name}
-					</h4>
-                    <p>
-                     {this.props.item.description}
-                    </p>
-				</div>
+            <div className="plauqeContainer">
+                <h4 className="plauqeTitle">
+                    {this.props.item.name}
+                </h4>
+                <img src={this.props.item.portrait} alt="Portrait" />
+                <p className="plauqeTitle">
+                    {this.props.item.description}
+                </p>
+                <form onSubmit={this.togglePurchased} >
+                    <button className={this.props.item.purchased ? "doneButton" : "editButton"}>
+                        {this.props.item.purchased ? "done" : "edit"}
+                    </button>
+                </form>
                 
-				<form onSubmit={this.togglePurchased} className="one columns">
-					<button className={this.props.item.purchased ? "" : "button-primary"}>{this.props.item.purchased ? "unbuy" : "buy"}</button>
-				</form>
-				<form className="one columns" onSubmit={this.delete}>
-					<button>&times;</button>
-				</form>
-			</div>
+                <form onSubmit={this.delete} >
+                    <button className="deleteButton">&times;</button>
+                </form>
+                <input type="text" defaultValue={this.props.item.name} onChange={this.handleTitleChange}/>
+            </div>
         )
     }
 })

@@ -21,10 +21,10 @@ app.get('/',function(req,res){
         }));
         
         res.render('./../app/index.ejs',{reactOutput:generated});
-    })
-    
+    })    
 })
 .use(express.static(__dirname + '/../.tmp'))
+.use(express.static(__dirname + '/../app/public/images'))
 .listen(7777);
 
 app.use(parser.json());

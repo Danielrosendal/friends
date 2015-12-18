@@ -9,19 +9,23 @@ mongoose.connect('mongodb://localhost/friends',function() {
     var items = [{
         name:"Emil",
         lastMeeting:new Date(),
-        description:"nice"
+        description:"nice",
+        portrait: "/images.jpeg"
     },{
         name:"Kalle",
-        lastMeeting:new Date(),
-        description:"nice2"
+        lastMeeting :new Date(),
+        description:"nice2",
+        portrait: "/images.jpeg"
     },{
         name:"olle",
         lastMeeting:new Date(),
-        description:"nice3"
+        description:"nice3",
+        portrait: "/download.jpeg"
     },{
         name:"Pelle",
         lastMeeting:new Date(),
-        description:"nice4"
+        description:"nice4",
+        portrait: "/download.jpeg"
     }];
     
     items.forEach(function(item){
