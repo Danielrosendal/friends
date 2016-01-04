@@ -2,26 +2,19 @@ var React = require('react/addons');
 var action = require('./../actions/FriendActionCreator.jsx')
 
 module.exports = React.createClass({
-    togglePurchased:function(e){
+    togglePurchased:function(e) {
         e.preventDefault();
         
-        if (this.props.item.purchased){
+        if (this.props.item.purchased) {
             action.unbuy(this.props.item);
         } else {
             action.buy(this.props.item);
         }
     },
-    delete:function(e){
+    delete: function (e) {
         e.preventDefault();
         action.delete(this.props.item);
         
-    },
-    toggleEditMode:function(e) {
-        e.preventDefault();
-        // alert("Friend!!");
-    },
-    handleTitleChange:function(e) {
-        this.setState({name: e.target.value});
     },
     render:function() {
         return (
@@ -42,7 +35,6 @@ module.exports = React.createClass({
                 <form onSubmit={this.delete} >
                     <button className="deleteButton">&times;</button>
                 </form>
-                <input type="text" defaultValue={this.props.item.name} onChange={this.handleTitleChange}/>
             </div>
         )
     }
