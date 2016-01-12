@@ -1,42 +1,39 @@
 var React = require('react/addons');
 var Friend = require('./Friend.jsx');
 var FriendEdit = require('./FriendEdit.jsx');
+var action = require('./../actions/FriendActionCreator.jsx')
 
 module.exports = React.createClass({
-	getInitialState: function() {
-		return {
-			inEditMode: false,
-            item: this.props.item
-		}
-	},
+//	getInitialState: function () {
+//		return {
+//			inEditMode: false
+//		}
+//	},
 	toggleEditMode:function(number) {
-        var newState = {};
-        if(this.state.inEditMode)
+//        var payloadItem = {};
+//        for (var key in this.props.item) {
+//            payloadItem[key] = this.props.item[key];
+//        }
+        if(this.props.item.editMode)
         {
-            newState = {
-                         inEditMode: false,
-                         item: this.state.editProps
-                       };
-            this.setState(newState, function() {
-                var v = this.state;
-            });
+//            payloadItem["editMode"] = false;
+            action.setRead(this.props.item);
         }
         else
         {
-            this.setState({ inEditMode: true});
+            action.setEdit(this.props.item);
         }
-        
+//        action.update(this.props.item, payloadItem);
     },
     handleFieldChange:function(childState) {
-        this.setState({editProps: childState})
+//        this.setState({editProps: childState})
     },
 	render:function() {
 		var self = this;
-		var item = this.state.item;
+		var item = this.props.item;
 		var index = this.props.index;
 		var content;
-		if(this.state.inEditMode)
-        {
+		if(this.props.item.editMode) {
             content = ( <FriendEdit onChangez={this.handleFieldChange} item={item} key={"item"+index}/> );
         }
         else
@@ -47,7 +44,7 @@ module.exports = React.createClass({
 			<div>
 				<p>FriendPlaque</p>
 				<button type="button" onClick={this.toggleEditMode.bind(this, item)} value="x" ></button>
-			{content}
+			     {content}
 			</div>
 		)
 	}

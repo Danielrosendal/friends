@@ -3,19 +3,14 @@ var FriendPlaque = require('./FriendPlaque.jsx');
 var FriendListAddFriend = require('./FriendListAddFriend.jsx');
 
 module.exports = React.createClass({
-    render:function() {
+    render:function () {
         return (
             <div>
                 <h1>Friends is best</h1>
                 <div className="friendContainer">
-                    {this.props.items.map(function(item, index){
-                        return (
-                            <div>
-                                {<FriendPlaque item={item} index={index} key={"item"+index}/>}
-                            </div>
-                        );
-                        }, this)
-                    }
+                    {this.props.items.map(function(item, index) {
+                        return <FriendPlaque key={item+index} item={item} index={index} />;
+                    }, this)}
                 </div>
                 <FriendListAddFriend />
             </div>

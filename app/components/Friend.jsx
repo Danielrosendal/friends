@@ -14,7 +14,6 @@ module.exports = React.createClass({
     delete: function (e) {
         e.preventDefault();
         action.delete(this.props.item);
-        
     },
     render:function() {
         return (

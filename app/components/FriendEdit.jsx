@@ -1,24 +1,17 @@
 var React = require('react/addons');
 var action = require('./../actions/FriendActionCreator.jsx')
 var DropZone = require('./DropZone.jsx');
+var action = require('./../actions/FriendActionCreator.jsx')
 
 module.exports = React.createClass({
-    getInitialState: function() {
-        return {
-                name: this.props.item.name,
-                description: this.props.item.description,
-                portrait: this.props.item.portrait
-               };
-    },
     handlePropertyChange:function(propName, e) {
         var jsonProp = {};
-        jsonProp[propName] = e.target.value
-        this.setState(jsonProp, function() {
-                        this.props.onChangez(this.state);
-                     });
+        jsonProp[propName] = e.target.value;
+
+        action.updateClientOnly(this.props.item, jsonProp);
     },
     onAddFile: function(res) {
-//        id:uuid(),
+        //id:uuid(),
         var newFile = {
           id:10,
           name:res.file.name,
@@ -29,26 +22,28 @@ module.exports = React.createClass({
           url:res.imageUrl
         };
         var url= newFile.url;
-        this.setState({portrait: url}, function() {
-                        this.props.onChangez(this.state);
-                     });
-//        this.executeAction(newImageAction, newFile);
+
+        var jsonProp = {}
+        jsonProp['editPortrait'] = url;
+
+        action.updateClientOnly(this.props.item, jsonProp);
     },
     render:function() {
-        var name = this.state.name;
-        var description = this.state.description;
-        var portrait = this.state.portrait;
-		return (
+        var name = this.props.item.name;
+        var description = this.props.item.description;
+        var portrait = this.props.item.editPortrait || this.props.item.portrait;
+
+        return (
             <div className="plauqeContainer">
                 Edit friend
                 <form>
                     <input type="text" 
-                            onChange={this.handlePropertyChange.bind(this, 'name')}
-                            value={name} />
+                            onChange={this.handlePropertyChange.bind(this, 'editName')}
+                            defaultValue={name} />
                     
                     <input type="text" 
-                            onChange={this.handlePropertyChange.bind(this, 'description')}
-                            value={description} />
+                            onChange={this.handlePropertyChange.bind(this, 'editDescription')}
+                            defaultValue={description} />
                     
                      <img ref="img" src={portrait} width="120" height="120"/>
                      <DropZone onDrop={this.onAddFile}>
@@ -58,19 +53,4 @@ module.exports = React.createClass({
             </div>
 		)
 	}
-    
-    //                    <img src={this.props.item.portrait} alt="Portrait" />
-//                    <input type="file"
-//                           onChange={this.handlePropertyChange.bind(this, 'portrait')}/>
-    
-    //                <form onSubmit={this.togglePurchased} >
-    //                    <button className={this.props.item.purchased ? "doneButton" : "editButton"}>
-    //                        {this.props.item.purchased ? "done" : "edit"}
-    //                    </button>
-    //                </form>
-    //                
-    //                <form onSubmit={this.delete} >
-    //                    <button className="deleteButton">&times;</button>
-    //                </form>
-    //                <input type="text" defaultValue={this.props.item.name} />
 })

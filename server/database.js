@@ -26,6 +26,16 @@ mongoose.connect('mongodb://localhost/friends',function() {
         lastMeeting:new Date(),
         description:"nice4",
         portrait: "/download.jpeg"
+    },{
+        name:"Jansson",
+        lastMeeting:new Date(),
+        description:"nice4",
+        portrait: "/download.jpeg"
+    },{
+        name:"Martin",
+        lastMeeting:new Date(),
+        description:"nice4",
+        portrait: "/download.jpeg"
     }];
     
     items.forEach(function(item){

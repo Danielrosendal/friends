@@ -41,6 +41,19 @@ module.exports = function (app) {
                 doc.save();
                 res.status(200).send();
             })
+        })
+        .put(function (req, res) {
+            console.log("PutPutPutPutPutPutPutPutPutPutPut");
+            Friend.findOne({
+                _id: req.body._id
+            }, function (error, doc) {
+                console.log(error);
+                for (var key in req.body) {
+                    doc[key] = req.body[key];
+                }
+                doc.save();
+                res.status(200).send();
+            })
         });
     app.route('/foo')
         .get(function (req, res) {

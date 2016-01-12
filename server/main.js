@@ -10,7 +10,7 @@ var Friend = require('./models/Friend.js');
 
 require('babel/register');
 require('./database.js');
-
+debugger;
 app.get('/',function(req,res){
     //res.render('./../app/index.ejs',{});
     var application = React.createFactory(require('./../app/components/FriendList.jsx'));
@@ -19,9 +19,10 @@ app.get('/',function(req,res){
         var generated = React.renderToString(application({
             items:doc
         }));
-        
+        console.log(generated);
+        debugger;
         res.render('./../app/index.ejs',{reactOutput:generated});
-    })    
+    })
 })
 .use(express.static(__dirname + '/../.tmp'))
 .use(express.static(__dirname + '/../app/public/images'))
