@@ -1,26 +1,262 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+@import "friendList.css";
+@import "friendPlaque.css";
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+@font-face {
+  font-family: genomeThin;
+  src: url(genome.thin.otf);
+}
+html {
+  color: darkslategray;
+  background-color: #fffefd;
+}
+body {
+  padding-top: 2rem;
+}
+* {
+  font-family: genomeThin;
+}
+.friend-addFriend {
+  margin-top: 1rem;
+  padding-top: 1rem;
+}
+.borderlessButton {
+  background: transparent;
+  margin-bottom: 0px;
+  border: 0px;
+  padding: 5px;
+}
 .plauqeContainer {
-  width: 100px;
+  width: 200px;
   margin: 2px;
-  background: lightgray;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
+  background: #E6E2AF;
+}
+.plaquePaddedItemBase {
+  width: 90%;
 }
 .plauqeTitle {
-  width: 100%;
+  width: 90%;
+  text-align: center;
+  line-height: 30px;
+}
+.plaqueDescription {
+  width: 90%;
+  margin: 5 auto 0 auto;
+  height: 49px;
 }
 .editButton {
-  background-color: red;
+  background: transparent;
+  margin-bottom: 0px;
+  border: 0px;
+  padding: 5px;
+  background-color: #069cca;
 }
 .doneButton {
-  background-color: green;
+  background: transparent;
+  margin-bottom: 0px;
+  border: 0px;
+  padding: 5px;
+  background-color: #0cc0f7;
 }
 .deleteButton {
-  background-color: yellow;
-  flex-basis: 45%;
+  background: transparent;
+  margin-bottom: 0px;
+  border: 0px;
+  padding: 5px;
+  background-color: #F25B24;
+  float: right;
+}
+.portraitImage {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 180px;
+  width: 180px;
+  display: block;
+  margin: 5 auto 0 auto;
+}
+.connectButtonsContainer {
+  display: flex;
+}
+.connectDivBase {
+  width: 100%;
+  text-align: center;
+  padding: 0px;
+  flex-grow: 1;
+  flex-basis: 0;
+  color: #E6E2AF;
+}
+.met {
+  width: 100%;
+  text-align: center;
+  padding: 0px;
+  flex-grow: 1;
+  flex-basis: 0;
+  color: #E6E2AF;
+  background: #046380;
+}
+.called {
+  width: 100%;
+  text-align: center;
+  padding: 0px;
+  flex-grow: 1;
+  flex-basis: 0;
+  color: #E6E2AF;
+  background: #035067;
+}
+.contactButton {
+  background: transparent;
+  margin-bottom: 0px;
+  border: 0px;
+  padding: 5px;
+  width: 100%;
+}
+.contactButton p {
+  padding-bottom: 5px;
+}
+.texted {
+  width: 100%;
+  text-align: center;
+  padding: 0px;
+  flex-grow: 1;
+  flex-basis: 0;
+  color: #E6E2AF;
+  background: #023d4f;
+}
+.contactImage {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 32px;
+}
+.inputField {
+  width: 90%;
+  margin: 5 auto 0 auto;
+  line-height: 19px;
+  display: block;
 }

@@ -21,25 +21,14 @@ gulp.task('live-server',function() {
     server.start();
 })
 
-gulp.task('bundle',['copy'],function(){
-    log('bundle')
-    return browserify({
-        entries:'app/main.jsx',
-        debug:true,
-    })
-    .transform(reactify)
-    .bundle()
-    .pipe(source('app.js'))
-    .pipe(gulp.dest('./.tmp'));
-})
-
 gulp.task('process-styles', function() {
     log('processing styles')
 	return gulp.src('./app/public/less/*.less')
 	.pipe(less({
       paths: [ path.join(__dirname, 'less', 'includes') ]
     }).on('error', function(err) {
-		this.emit('end');
+		console.log(error.toString());
+        this.emit('end');
 	}))
     .pipe(gulp.dest('./app/public/css'))
 	.pipe(rename({suffix: '.min'}))
@@ -52,6 +41,18 @@ gulp.task('copy', ['process-styles'],function(){
     return gulp.src(['app/public/css/*.css', 'bower_components/skeleton/css/*.css'])
     .pipe(gulp.dest('./.tmp'));
     // .pipe(browserSync.stream( { stream:true }));
+})
+
+gulp.task('bundle',['copy'],function(){
+    log('bundle')
+    return browserify({
+        entries:'app/main.jsx',
+        debug:true,
+    })
+    .transform(reactify)
+    .bundle()
+    .pipe(source('app.js'))
+    .pipe(gulp.dest('./.tmp'));
 })
 
 gulp.task('serve',['bundle','live-server'],function() {

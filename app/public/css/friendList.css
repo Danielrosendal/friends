@@ -1,7 +1,6 @@
-.friendContainer {
+.friendListContainer {
   width: 100%;
-  margin: 2px;
-  background: blue;
+  margin: 10px;
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;

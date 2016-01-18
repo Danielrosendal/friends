@@ -2,6 +2,7 @@ var React = require('react/addons');
 var action = require('./../actions/FriendActionCreator.jsx')
 var DropZone = require('./DropZone.jsx');
 var action = require('./../actions/FriendActionCreator.jsx')
+var uuid = require('uuid');
 
 module.exports = React.createClass({
     handlePropertyChange:function(propName, e) {
@@ -11,9 +12,8 @@ module.exports = React.createClass({
         action.updateClientOnly(this.props.item, jsonProp);
     },
     onAddFile: function(res) {
-        //id:uuid(),
         var newFile = {
-          id:10,
+          id:uuid.v1(),
           name:res.file.name,
           size: res.file.size,
           altText:'',
@@ -34,22 +34,17 @@ module.exports = React.createClass({
         var portrait = this.props.item.editPortrait || this.props.item.portrait;
 
         return (
-            <div className="plauqeContainer">
-                Edit friend
-                <form>
-                    <input type="text" 
-                            onChange={this.handlePropertyChange.bind(this, 'editName')}
-                            defaultValue={name} />
-                    
-                    <input type="text" 
-                            onChange={this.handlePropertyChange.bind(this, 'editDescription')}
-                            defaultValue={description} />
-                    
-                     <img ref="img" src={portrait} width="120" height="120"/>
-                     <DropZone onDrop={this.onAddFile}>
-                        <p>Drag &amp; drop files here or click here to browse for files.</p>
-                     </DropZone>
-                </form>
+            <div className="friendContainer">
+                <input className="inputField" type="text"
+                       onChange={this.handlePropertyChange.bind(this, 'editName')}
+                       defaultValue={name} />
+
+                 <img className="portraitImage" ref="img" src={portrait} />
+                 <DropZone onDrop={this.onAddFile}>
+                    <p>Drag &amp; drop files here or click here to browse for files.</p>
+                 </DropZone>
+
+               <textarea rows="4" className="inputField" onChange={this.handlePropertyChange.bind(this, 'editDescription')} defaultValue={description} ></textarea>
             </div>
 		)
 	}

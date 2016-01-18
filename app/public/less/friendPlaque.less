@@ -1,32 +1,114 @@
 @import 'variables';
+@import 'styles';
+@plaquePadding: 10px;
+
 
 .plauqeContainer {
-	width: @columnWidth;
+	width: @columnWidth * 2;
 	margin: 2px;
-	background: lightgray;
-	display: -webkit-box;
-	display: -moz-box;
-	display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: center;
+	background: @hampton;
+}
+
+.plaquePaddedItemBase {
+    width: 100% - @plaquePadding;
 }
 
 .plauqeTitle {
-	width: 100%;
+    .plaquePaddedItemBase;
+    text-align: center;
+    line-height: 30px;
+}
+
+.plaqueDescription {
+    .plaquePaddedItemBase;
+    margin: 5 auto 0 auto;
+    height: 49px;
 }
 
 .editButton {
-    background-color: red;
+    .borderlessButton;
+    background-color: lighten(@veniceBlue, 15%);
 }
 
 .doneButton {
-    background-color: green;
+    .borderlessButton;
+    background-color: lighten(@veniceBlue, 25%);
 }
 
 .deleteButton {
-	background-color: yellow;
-	flex-basis: 45%
+    .borderlessButton;
+    background-color: @warningColorFade;
+    float: right;
 }
+
+.portraitImage {
+    .plaquePaddedItemBase;
+    margin-left: auto;
+    margin-right: auto;
+    height: 180px;
+    width: 180px;
+    display: block;
+    margin: 5 auto 0 auto;
+}
+
+.connectButtonsContainer {
+    display: flex;
+
+}
+
+.connectDivBase {
+    width: 100%;
+    text-align: center;
+    padding: 0px;
+    flex-grow: 1;
+    flex-basis: 0;
+    color: @hampton;
+}
+
+.met {
+    .connectDivBase;
+    background: @veniceBlue;
+}
+
+.called {
+    .connectDivBase;
+    background: darken(@veniceBlue, 5%);
+}
+
+.contactButton {
+    .borderlessButton;
+    width: 100%;
+}
+
+.contactButton p {
+    padding-bottom: 5px;
+}
+
+.texted {
+    .connectDivBase;
+    background: darken(@veniceBlue, 10%);
+}
+
+.contactImage {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 32px;
+}
+
+.inputField {
+    .plaquePaddedItemBase;
+    margin: 5 auto 0 auto;
+    line-height:19px;
+    display: block;
+}
+
+//.friendEditContainer input {
+//    margin: 5 0 0 0;
+//}
+//
+//.friendEditContainer img {
+//    margin: 5 0 0 0;
+//}
+
+

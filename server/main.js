@@ -26,6 +26,7 @@ app.get('/',function(req,res){
 })
 .use(express.static(__dirname + '/../.tmp'))
 .use(express.static(__dirname + '/../app/public/images'))
+.use(express.static(__dirname + '/../app/public/fonts'))
 .listen(7777);
 
 app.use(parser.json());
