@@ -107,6 +107,8 @@ section {
 }
 body {
   line-height: 1;
+  background: #fffdef;
+  color: #FFFAD5;
 }
 ol,
 ul {
@@ -128,8 +130,7 @@ table {
   border-spacing: 0;
 }
 @font-face {
-  font-family: genomeThin;
-  src: url(genome.thin.otf);
+  font-family: 'Lato', sans-serif;
 }
 html {
   color: darkslategray;
@@ -139,7 +140,8 @@ body {
   padding-top: 2rem;
 }
 * {
-  font-family: genomeThin;
+  font-family: Lato;
+  letter-spacing: 2px;
 }
 .friend-addFriend {
   margin-top: 1rem;
@@ -150,4 +152,19 @@ body {
   margin-bottom: 0px;
   border: 0px;
   padding: 5px;
+}
+.pageWrap {
+  width: 1110px;
+  margin: 0 auto;
+}
+#app {
+  margin-top: 100px;
+}
+.headerContainer {
+  width: 1110px;
+  background: #105B63;
+  position: fixed;
+  top: 0px;
+  height: 100px;
+  color: #FFFAD5;
 }

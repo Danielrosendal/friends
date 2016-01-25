@@ -107,6 +107,8 @@ section {
 }
 body {
   line-height: 1;
+  background: #fffdef;
+  color: #FFFAD5;
 }
 ol,
 ul {
@@ -128,8 +130,7 @@ table {
   border-spacing: 0;
 }
 @font-face {
-  font-family: genomeThin;
-  src: url(genome.thin.otf);
+  font-family: 'Lato', sans-serif;
 }
 html {
   color: darkslategray;
@@ -139,7 +140,8 @@ body {
   padding-top: 2rem;
 }
 * {
-  font-family: genomeThin;
+  font-family: Lato;
+  letter-spacing: 2px;
 }
 .friend-addFriend {
   margin-top: 1rem;
@@ -151,16 +153,32 @@ body {
   border: 0px;
   padding: 5px;
 }
+.pageWrap {
+  width: 1110px;
+  margin: 0 auto;
+}
+#app {
+  margin-top: 100px;
+}
+.headerContainer {
+  width: 1110px;
+  background: #105B63;
+  position: fixed;
+  top: 0px;
+  height: 100px;
+  color: #FFFAD5;
+}
 .plauqeContainer {
-  width: 200px;
-  margin: 2px;
-  background: #E6E2AF;
+  width: 210px;
+  margin: 5px;
+  background: #105B63;
 }
 .plaquePaddedItemBase {
   width: 90%;
 }
 .plauqeTitle {
   width: 90%;
+  margin: 5 auto 0 auto;
   text-align: center;
   line-height: 30px;
 }
@@ -168,37 +186,38 @@ body {
   width: 90%;
   margin: 5 auto 0 auto;
   height: 49px;
+  overflow: hidden;
 }
 .editButton {
   background: transparent;
   margin-bottom: 0px;
   border: 0px;
   padding: 5px;
-  background-color: #069cca;
+  background-color: #BD4932;
+  color: #FFFAD5;
 }
 .doneButton {
   background: transparent;
   margin-bottom: 0px;
   border: 0px;
   padding: 5px;
-  background-color: #0cc0f7;
+  background-color: #BD4932;
+  color: #FFFAD5;
 }
 .deleteButton {
   background: transparent;
   margin-bottom: 0px;
   border: 0px;
   padding: 5px;
-  background-color: #F25B24;
+  background-color: #BD4932;
   float: right;
 }
 .portraitImage {
   width: 90%;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 5 auto 0 auto;
   height: 180px;
   width: 180px;
   display: block;
-  margin: 5 auto 0 auto;
 }
 .connectButtonsContainer {
   display: flex;
@@ -209,7 +228,7 @@ body {
   padding: 0px;
   flex-grow: 1;
   flex-basis: 0;
-  color: #E6E2AF;
+  color: #FFFAD5;
 }
 .met {
   width: 100%;
@@ -217,8 +236,8 @@ body {
   padding: 0px;
   flex-grow: 1;
   flex-basis: 0;
-  color: #E6E2AF;
-  background: #046380;
+  color: #FFFAD5;
+  background: #BD4932;
 }
 .called {
   width: 100%;
@@ -226,8 +245,17 @@ body {
   padding: 0px;
   flex-grow: 1;
   flex-basis: 0;
-  color: #E6E2AF;
-  background: #035067;
+  color: #FFFAD5;
+  background: #a9412d;
+}
+.texted {
+  width: 100%;
+  text-align: center;
+  padding: 0px;
+  flex-grow: 1;
+  flex-basis: 0;
+  color: #FFFAD5;
+  background: #953927;
 }
 .contactButton {
   background: transparent;
@@ -238,15 +266,6 @@ body {
 }
 .contactButton p {
   padding-bottom: 5px;
-}
-.texted {
-  width: 100%;
-  text-align: center;
-  padding: 0px;
-  flex-grow: 1;
-  flex-basis: 0;
-  color: #E6E2AF;
-  background: #023d4f;
 }
 .contactImage {
   display: block;

@@ -4,9 +4,9 @@
 
 
 .plauqeContainer {
-	width: @columnWidth * 2;
-	margin: 2px;
-	background: @hampton;
+	width: @columnWidth * 2 + @gutterWidth;
+	margin: 5px;
+	background: @eden;
 }
 
 .plaquePaddedItemBase {
@@ -15,6 +15,7 @@
 
 .plauqeTitle {
     .plaquePaddedItemBase;
+    margin: 5 auto 0 auto;
     text-align: center;
     line-height: 30px;
 }
@@ -23,37 +24,37 @@
     .plaquePaddedItemBase;
     margin: 5 auto 0 auto;
     height: 49px;
+    overflow: hidden;
 }
 
 .editButton {
     .borderlessButton;
-    background-color: lighten(@veniceBlue, 15%);
+    background-color: @mojo;
+    color: @bajaWhite;
 }
 
 .doneButton {
     .borderlessButton;
-    background-color: lighten(@veniceBlue, 25%);
+    background-color: @mojo;
+    color: @bajaWhite;
 }
 
 .deleteButton {
     .borderlessButton;
-    background-color: @warningColorFade;
+    background-color: @mojo;
     float: right;
 }
 
 .portraitImage {
     .plaquePaddedItemBase;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 5 auto 0 auto;
     height: 180px;
     width: 180px;
     display: block;
-    margin: 5 auto 0 auto;
 }
 
 .connectButtonsContainer {
     display: flex;
-
 }
 
 .connectDivBase {
@@ -62,17 +63,23 @@
     padding: 0px;
     flex-grow: 1;
     flex-basis: 0;
-    color: @hampton;
+    color: @bajaWhite;
 }
 
 .met {
     .connectDivBase;
-    background: @veniceBlue;
+    background: @mojo;
+
 }
 
 .called {
     .connectDivBase;
-    background: darken(@veniceBlue, 5%);
+    background: darken(@mojo, 5%);
+}
+
+.texted {
+    .connectDivBase;
+    background: darken(@mojo, 10%);
 }
 
 .contactButton {
@@ -84,10 +91,7 @@
     padding-bottom: 5px;
 }
 
-.texted {
-    .connectDivBase;
-    background: darken(@veniceBlue, 10%);
-}
+
 
 .contactImage {
     display: block;
@@ -102,13 +106,3 @@
     line-height:19px;
     display: block;
 }
-
-//.friendEditContainer input {
-//    margin: 5 0 0 0;
-//}
-//
-//.friendEditContainer img {
-//    margin: 5 0 0 0;
-//}
-
-

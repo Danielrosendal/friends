@@ -1,3 +1,5 @@
+@import "variables.less";
+
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
@@ -30,6 +32,8 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+    background: lighten(@bajaWhite, 5%);
+    color: @bajaWhite;
 }
 ol, ul {
 	list-style: none;
@@ -48,8 +52,9 @@ table {
 }
 
 @font-face {
-    font-family: genomeThin;
-    src: url(genome.thin.otf);
+    font-family: 'Lato', sans-serif;
+//    font-family: genomeThin;
+//    src: url(genome.thin.otf);
 }
 
 html {
@@ -62,7 +67,8 @@ body {
 }
 
 * {
-    font-family: genomeThin;
+    font-family: Lato;
+    letter-spacing: 2px;
 }
 
 .friend-addFriend {
@@ -77,6 +83,15 @@ body {
     padding: 5px;
 }
 
-@import "variables.less";
+.pageWrap {
+    width: @pageWidth;
+    margin: 0 auto;
+}
+
+#app {
+    margin-top: 100px;
+}
+
 @import "friendList.css";
 @import "friendPlaque.css";
+@import "header.less";

@@ -39,9 +39,10 @@ module.exports = React.createClass({
                        onChange={this.handlePropertyChange.bind(this, 'editName')}
                        defaultValue={name} />
 
-                 <img className="portraitImage" ref="img" src={portrait} />
+
                  <DropZone onDrop={this.onAddFile}>
-                    <p>Drag &amp; drop files here or click here to browse for files.</p>
+                    <img className="portraitImage" ref="img" src={portrait} />
+
                  </DropZone>
 
                <textarea rows="4" className="inputField" onChange={this.handlePropertyChange.bind(this, 'editDescription')} defaultValue={description} ></textarea>

@@ -1,15 +1,17 @@
 <head>
     <title>Friends</title>
     <link href='/normalize.css' rel="stylesheet">
-    <!-- <link href='/skeleton.css' rel="stylesheet">-->
     <link href='/styles.css' rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Lato:300italic' rel='stylesheet' type='text/css'>
 </head>
-   <body>
-   <div class='container'>
-   
-    <div id="app">
-        <%reactOutput%>
+<body>
+    <div class='pageWrap'>
+        <header class='headerContainer'>
+            <h1>Friends is best</h1>
+        </header>
+        <div id="app">
+            <%reactOutput%>
+        </div>
+        <script src='app.js'></script>
     </div>
-    </div>
-    <script src='app.js'></script>
-    </body>
+</body>
